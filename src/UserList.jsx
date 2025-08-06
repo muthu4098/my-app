@@ -1,3 +1,4 @@
+import { Counter } from "./Counter";
 import { User } from "./User";
 
 export function UserList() {
