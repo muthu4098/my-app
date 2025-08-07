@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 export function 
 Counter() {
   const [like, setLike] = useState(0);
@@ -21,4 +20,5 @@ Counter() {
     </div>
   );
 }
+
 
