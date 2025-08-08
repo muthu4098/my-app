@@ -1,27 +1,56 @@
+// Presentation
+
 import { useState } from "react";
 import { MovieCounter } from "./MovieCounter";
+import { Link, useNavigate } from "react-router";
 
-export function Movie({movie:{ name = "unknown", poster, summary, rating }}) {
-  const [show,setShow]=useState(false)
-// conditional styles
-const styles={
-color: rating>=8.5?"green":"red"
-}
-const summaryStyles={
-  display:show?"block":"none"
-}
+export function Movie({ movie, id }) {
+  const [show, setShow] = useState(true);
+
+  // rating >= 8.5 (green) else (red)
+
+  // Conditional Styling
+  const ratingStyles = {
+    color: movie.rating >= 8.5 ? "green" : "red",
+    // fontSize: "32px",
+  };
+
+  // Conditional Styling
+  const summaryStyles = {
+    display: show ? "block" : "none",
+  };
+
+  const navigate = useNavigate();
+
+  // +1 -> forward
+  // -1 -> backward
+
   return (
     <div className="movie-container">
-      <img src={poster} alt="movie-poster" />
-      <div className="title-container">
-        <h1>{name}</h1>
-        
-        <h2 style={styles}>⭐{rating}</h2>
+      <img src={movie.poster} alt={movie.name} className="movie-poster" />
+      <div className="movie-content-container">
+        <div className="movie-specs">
+          <h2 className="movie-name">{movie.name}</h2>
+          <p style={ratingStyles} className="movie-rating">
+            ⭐ {movie.rating}
+          </p>
+        </div>
+
+        {/*   Task 1.2  */}
+        <button onClick={() => setShow(!show)}>Toggle Summary</button>
+        {/* <Link to={"/movies/" + id}>View Details</Link> */}
+        <button onClick={() => navigate("/movies/" + id)}>View Details</button>
+
+        {/* Conditional Rendering */}
+        {show && <p className="movie-summary">{movie.summary}</p>}
+
+        {/* Conditional Styling */}
+        {/* <p style={summaryStyles} className="movie-summary">
+          {movie.summary}
+        </p> */}
+        {/* Task 1.1 - Like & DisLike - MovieCounter */}
+        <MovieCounter />
       </div>
-       <button onClick={()=>setShow(!show)}>ToggleSummary </button>
-      {/* {show &&<p>{summary}</p>} */}
-     <p style={summaryStyles}>{summary}</p>
-      <MovieCounter />
     </div>
   );
 }
