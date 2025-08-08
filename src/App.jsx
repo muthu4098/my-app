@@ -3,9 +3,10 @@ import { UserList } from "./UserList";
 import { Route, Routes, Link, useParams, Navigate } from "react-router";
 import { ColorGames } from "./ColorGames";
 import { AddMovieList } from "./AddMovieList";
-import { useState } from "react";
-import { INITIAL_MOVIES } from "./MovieListDetails";
+import { useEffect, useState } from "react";
+import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
 import { About, Contact, NotFound } from "./About";
+import { MovieList } from "./MovieList";
 // conditional Rendering
 // conditional styling
 
@@ -24,10 +25,7 @@ export default function App() {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="user" element={<UserList />} />
-        <Route
-          path="movies"
-          element={<AddMovieList movies={movies} setMovies={setMovies} />}
-        />
+        <Route path="movies" element={<MovieList />} />
         <Route path="color" element={<ColorGames />} />
         <Route path="films" element={<Navigate to="/movies" replace />} />
         <Route path="movies/:id" element={<MovieDetails movies={movies} />} />
@@ -39,10 +37,24 @@ export default function App() {
   );
 }
 
-function MovieDetails({ movies }) {
+function MovieDetails() {
   const { id } = useParams();
-  console.log(movies);
-  const movie = movies[id];
+  // console.log(movies);
+  // const movie = movies[id];
+
+  const [movie, setMovie] = useState({});
+
+  async function getMovie() {
+    const response = await fetch(
+      "https://68959012039a1a2b288f7c29.mockapi.io/Movies/" + id
+    );
+    const data = await response.json();
+    setMovie(data);
+  }
+
+  useEffect(() => {
+    getMovie();
+  }, []);
 
   return (
     <div className="movie-detail-container">
