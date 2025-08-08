@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import { Movie } from "./Movie";
 
 export function MovieList() {
@@ -69,7 +70,7 @@ export function MovieList() {
       summary: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA\\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\\n of researchers, to find a new planet for humans.",
       rating: 8.8,
     },
-  ];
+  ]
   return movieDetails.map(({ name, poster, summary, rating }) => (
     <Movie name={name} poster={poster} summary={summary} rating={rating} />
   ));
@@ -77,4 +78,14 @@ export function MovieList() {
   // <Movie name="N/A" {...movieDetails}/>
   // <Movie {name="N/A",...movieDetails}/>
   // ))
+}
+
+function Moviepar ({name})
+{
+const {id}=useParams();
+return (
+  <div>
+    <h1>Contact Details page of {name[id]}</h1>
+  </div>
+)
 }

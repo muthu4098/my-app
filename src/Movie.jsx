@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MovieCounter } from "./MovieCounter";
 
-export function Movie({ name = "unknown", poster, summary, rating }) {
+export function Movie({movie:{ name = "unknown", poster, summary, rating }}) {
   const [show,setShow]=useState(false)
 // conditional styles
 const styles={
