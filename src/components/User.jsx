@@ -1,5 +1,5 @@
 import { Counter } from "./Counter";
-export function User({ pic, name }) {
+function User({ pic, name }) {
   return (
     <div className="container">
       <img src={pic}  {...name} profile is not found  />
@@ -11,3 +11,4 @@ export function User({ pic, name }) {
     </div>
   );
 }
+export {User};

@@ -1,8 +1,24 @@
-import { useState } from "react";
-import { Movie } from "./Movie";
+import { useEffect, useState } from "react";
+import { Movie } from "../components/Movie";
+import { AddMovie } from "./AddMovie";
 
+// import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
 
-export function AddMovieList({movies,setMovies}) {
+export function MovieList() {
+  const [movies, setMovies] = useState([]);
+
+  async function getMovies() {
+    const response = await fetch(
+      "https://68959012039a1a2b288f7c29.mockapi.io/Movies"
+    );
+    const data = await response.json();
+    setMovies(data);
+  }
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   const [name, setName] = useState("");
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
@@ -35,8 +51,8 @@ export function AddMovieList({movies,setMovies}) {
     resetMovieForm();
   };
 
+  // C=F(S)
 
-  
   return (
     <div>
       <form onSubmit={addMovie} className="add-movie-form">
@@ -76,7 +92,6 @@ export function AddMovieList({movies,setMovies}) {
           <Movie key={index} movie={movie} id={index} />
         ))}
       </section>
-
     </div>
   );
 }

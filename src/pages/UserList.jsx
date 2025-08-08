@@ -1,5 +1,5 @@
-import { Counter } from "./Counter";
-import { User } from "./User";
+
+import { User } from "../components/User";
 
 export function UserList() {
   const userList = [

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { MovieCounter } from "./MovieCounter";
+// import { MovieCounter } from "./MovieCounter";
 import { Link, useNavigate } from "react-router";
+import { MovieCounter } from "../components/MovieCounter";
 
 export function AddMovie({ name = "unknown", poster, summary, rating }) {
   const [show, setShow] = useState(true);
@@ -24,7 +25,7 @@ const navigate = useNavigate();
         <button onClick={() => setShow(show ? false : true)}>Toggle</button>
          <button onClick={() => navigate("/movies/" + id)}>View Details</button>
         {show && <p>{summary}</p>}
-        <MovieCounter />
+        <MovieCounter/>
       </div>
     </div>
   );

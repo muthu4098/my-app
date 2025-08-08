@@ -39,7 +39,7 @@ export function Movie({ movie, id }) {
         {/*   Task 1.2  */}
         <button onClick={() => setShow(!show)}>Toggle Summary</button>
         {/* <Link to={"/movies/" + id}>View Details</Link> */}
-        <button onClick={() => navigate("/movies/" + id)}>View Details</button>
+        <button onClick={() => navigate("/movies/" + movie.id)}>View Details</button>
 
         {/* Conditional Rendering */}
         {show && <p className="movie-summary">{movie.summary}</p>}
