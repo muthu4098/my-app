@@ -10,7 +10,7 @@ function EditMovie() {
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setSummary] = useState("");
-   const [trailer, setTrailer] = useState("");
+  const [trailer, setTrailer] = useState("");
   
 
   // Fetch movie details by ID

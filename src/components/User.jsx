@@ -1,13 +1,14 @@
 import { Counter } from "./Counter";
+import { MovieCounter } from "./MovieCounter";
 function User({ pic, name }) {
   return (
     <div className="container">
-      <img src={pic}  {...name} profile is not found  />
+      <img src={pic} alt={name} />
       
       <p>
         Hello, <span>{name}</span>🙂‍↕
       </p>
-      <Counter />
+     <MovieCounter />
     </div>
   );
 }

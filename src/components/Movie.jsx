@@ -3,22 +3,26 @@
 import { useState } from "react";
 import { MovieCounter } from "./MovieCounter";
 import { Link, useNavigate } from "react-router";
+import InfoIcon from '@mui/icons-material/Info';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import Rating from '@mui/material/Rating';
 
-export function Movie({ movie, id }) {
+
+export function Movie({ movie }) {
   const [show, setShow] = useState(true);
 
   // rating >= 8.5 (green) else (red)
 
   // Conditional Styling
-  const ratingStyles = {
-    color: movie.rating >= 8.5 ? "green" : "red",
-    // fontSize: "32px",
-  };
+  // const ratingStyles = {
+  //   color: movie.rating >= 8.5 ? "green" : "red",
+  //   // fontSize: "32px",
+  // };
 
   // Conditional Styling
-  const summaryStyles = {
-    display: show ? "block" : "none",
-  };
+  // const summaryStyles = {
+  //   display: show ? "block" : "none",
+  // };
 
   const navigate = useNavigate();
 
@@ -31,6 +35,7 @@ export function Movie({ movie, id }) {
       <div className="movie-content-container">
         <div className="movie-specs">
           <h2 className="movie-name">{movie.name}</h2>
+          
           <div className="info">
             <InfoIcon
               className="info-icon"
@@ -51,9 +56,9 @@ export function Movie({ movie, id }) {
         /> */}
 
         {/*   Task 1.2  */}
-        <button onClick={() => setShow(!show)}>Toggle Summary</button>
+        {/* <button onClick={() => setShow(!show)}>Toggle Summary</button> */}
         {/* <Link to={"/movies/" + id}>View Details</Link> */}
-        <button onClick={() => navigate("/movies/" + movie.id)}>View Details</button>
+        {/* <button onClick={() => navigate("/movies/" + movie.id)}>View Details</button> */}
 
         {/* Conditional Rendering */}
         {show && <p className="movie-summary">{movie.summary}</p>}
@@ -64,6 +69,8 @@ export function Movie({ movie, id }) {
         </p> */}
         {/* Task 1.1 - Like & DisLike - MovieCounter */}
         <MovieCounter />
+
+
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
-/* .App {
+.App {
   font-family: sans-serif;
   text-align: center;
 }
 nav {
-
-  background-color:#1976d2;
+  background-color: #1976d2;
   height: 30px;
   padding: 20px;
   display: flex;
@@ -12,10 +11,11 @@ nav {
   align-items: center;
   max-width: 100%;
 
-  a{
+  a {
     color: #cd1111;
     color: white;
-  text-decoration: none;
+    text-decoration: none;
+  }
 }
 
 .container {
@@ -64,7 +64,6 @@ nav {
 .movie-name {
   font-size: 24px;
   margin: 0;
-  
 }
 
 .movie-rating {
@@ -89,47 +88,46 @@ nav {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
-  
-  
 
-  /* RAM */
-  /* display: grid;
+  /* RAM
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   justify-items: center;
   gap: 32px; */
-/* } */
+}
 
-.movie-btom-icon{
+.movie-btom-icon {
   display: flex;
- 
+
   justify-content: space-between;
 }
-.edit-delete-icon{
+.edit-delete-icon {
   display: flex;
   gap: 20px;
   padding: 10px;
 }
-.like-btn{
+.like-btn {
   display: flex;
   gap: 30px;
   padding: 10px;
+  color: #1976d2;
 }
 
-.delete-icon{
+.delete-icon {
   color: red;
 }
-.edit-icon{
+.edit-icon {
   color: blue;
-  
 }
-.dislike-btn{
+.dislike-btn {
+  padding-top: 10px;
   color: crimson;
 }
-.info-icon{
+.info-icon {
   background-color: white;
   color: darkmagenta;
 }
-.info{
+.info {
   display: flex;
   gap: 20px;
 }

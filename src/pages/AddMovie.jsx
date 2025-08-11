@@ -1,33 +1,76 @@
 import { useState } from "react";
-// import { MovieCounter } from "./MovieCounter";
 import { Link, useNavigate } from "react-router";
 import { MovieCounter } from "../components/MovieCounter";
 
-export function AddMovie({ name = "unknown", poster, summary, rating }) {
-  const [show, setShow] = useState(true);
- 
-  const ratingStyle = {
-    color: rating > 8.5 ? "green" : "red",
+export function AddMovie() {
+const [name, setName] = useState("");
+  const [poster, setPoster] = useState("");
+  const [rating, setRating] = useState("");
+  const [summary, setSummary] = useState("");
+
+  // const styles = {
+  //   background: color,
+  // };
+
+  // const [colors, setColors] = useState(INITIAL_COLORS);
+
+  const resetMovieForm = () => {
+    setName("");
+    setPoster("");
+    setRating("");
+    setSummary("");
   };
 
-  const toggleStyle = {
-    display: show ? "block" : "none",
+  const addMovie = (event) => {
+    event.preventDefault(); // no refresh
+
+    const newMovie = {
+      name: name,
+      poster: poster,
+      rating: rating,
+      summary: summary,
+    };
+
+    // Existing movies + new Movie
+    // setMovies([...movies, newMovie]);
+    resetMovieForm();
   };
+
+
 const navigate = useNavigate();
+
   return (
-    <div className="movie-container">
-      <div>
-        <img src={poster} alt="" />
-        <div className="title-container">
-          <h1>{name}</h1>
-          <h2 style={ratingStyle}>{rating}</h2>
-        </div>
-        <button onClick={() => setShow(show ? false : true)}>Toggle</button>
-         <button onClick={() => navigate("/movies/" + id)}>View Details</button>
-        {show && <p>{summary}</p>}
-        <MovieCounter/>
-      </div>
-    </div>
+    <form onSubmit={addMovie} className="add-movie-form">
+        <input
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          type="text"
+          placeholder="Name"
+        />
+        <input
+          value={poster}
+          onChange={(event) => setPoster(event.target.value)}
+          type="text"
+          placeholder="Poster"
+        />
+        <input
+          value={rating}
+          onChange={(event) => setRating(event.target.value)}
+          type="text"
+          placeholder="Rating"
+        />
+        <input
+          value={summary}
+          onChange={(event) => setSummary(event.target.value)}
+          type="text"
+          placeholder="Summary"
+        />
+
+        {/* Task 3.2 - Add the color to the list */}
+        {/* Existing Colors + New Color */}
+        {/* submit -> onSubmit event triggered */}
+        <button type="submit">➕ Add</button>
+      </form>
   );
 }
 
