@@ -11,7 +11,7 @@ export function ColorGames() {
 
   return (
 
-    <div>
+    <div className="colorgame-contain">
       {/* Task 2.2 - Update the background the input */}
 
       <input

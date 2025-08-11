@@ -15,10 +15,24 @@ export default function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/"> Home</Link> |<Link to="/about"> About </Link> | |
-        <Link to="/user">UserList</Link> | <Link to="/movies">MovieList</Link> |
-        <Link to="/color">ColorGames</Link> |{" "}
-        <Link to="/movies/new">Add Movie</Link>
+        <Button variant="contained" href="#contained-buttons">
+          <Link to="/"> Home</Link> 
+        </Button>
+        <Button variant="contained" href="#contained-buttons">
+          <Link to="/movies">MovieList</Link>
+        </Button>
+        <Button variant="contained" href="#contained-buttons">
+          <Link to="/movies/new">Add Movie</Link>
+        </Button>
+        <Button variant="contained" href="#contained-buttons">
+          <Link to="/user">UserList</Link>
+        </Button>
+        <Button variant="contained" href="#contained-buttons">
+          <Link to="/color">ColorGames</Link>
+        </Button>
+        <Button variant="contained" href="#contained-buttons">
+          <Link to="/about"> About </Link>
+        </Button>
       </nav>
       <Routes>
         <Route path="about" element={<About />} />

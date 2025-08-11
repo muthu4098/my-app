@@ -31,10 +31,24 @@ export function Movie({ movie, id }) {
       <div className="movie-content-container">
         <div className="movie-specs">
           <h2 className="movie-name">{movie.name}</h2>
-          <p style={ratingStyles} className="movie-rating">
-            ⭐ {movie.rating}
-          </p>
+          <div className="info">
+            <InfoIcon
+              className="info-icon"
+              onClick={() => navigate("/movies/" + movie.id)}
+            />
+            <KeyboardArrowDownRoundedIcon
+              className="down-togle"
+              onClick={() => setShow(!show)}
+            />
+          </div>
         </div>
+        <Rating name="read-only" value={movie.rating/2} precision={0.5} readOnly />
+
+        {/* <Rating
+          name="half-rating-read"
+          defaultValue={movie.Rating}
+          precision={0.5}
+        /> */}
 
         {/*   Task 1.2  */}
         <button onClick={() => setShow(!show)}>Toggle Summary</button>

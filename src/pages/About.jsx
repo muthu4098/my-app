@@ -4,9 +4,14 @@ export function NotFound() {
 }
 // /about -> About
 export function About() {
-  return <h1>About Page </h1>;
+  return (<div>
+    <h1>About Me </h1>
+    <h2>🎬MuthuKumar🍿</h2>
+  </div>
+  );
   
 }
 export function Home() {
-  return <h1>Home Page </h1>;
+  return (<h1>Welcome To Movie 🍿🎬 </h1>)
+ 
 }
