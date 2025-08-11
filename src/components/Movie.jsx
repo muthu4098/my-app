@@ -3,23 +3,22 @@
 import { useState } from "react";
 import { MovieCounter } from "./MovieCounter";
 import { Link, useNavigate } from "react-router";
-import InfoIcon from '@mui/icons-material/Info';
-import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
-import Rating from '@mui/material/Rating';
+import InfoIcon from "@mui/icons-material/Info";
+import IconButton from "@mui/material/IconButton";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import Rating from "@mui/material/Rating";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
 
-
-export function Movie({ movie }) {
+export function Movie({ movie, deleteBtn = <button>Delete</button>, editBtn }) {
   const [show, setShow] = useState(true);
 
   // rating >= 8.5 (green) else (red)
 
-  // Conditional Styling
-  // const ratingStyles = {
-  //   color: movie.rating >= 8.5 ? "green" : "red",
-  //   // fontSize: "32px",
-  // };
-
-  // Conditional Styling
+  // // Conditional Styling
   // const summaryStyles = {
   //   display: show ? "block" : "none",
   // };
@@ -30,48 +29,42 @@ export function Movie({ movie }) {
   // -1 -> backward
 
   return (
-    <div className="movie-container">
+    <Card className="movie-container">
       <img src={movie.poster} alt={movie.name} className="movie-poster" />
       <div className="movie-content-container">
-        <div className="movie-specs">
-          <h2 className="movie-name">{movie.name}</h2>
-          
-          <div className="info">
-            <InfoIcon
-              className="info-icon"
-              onClick={() => navigate("/movies/" + movie.id)}
-            />
-            <KeyboardArrowDownRoundedIcon
-              className="down-togle"
-              onClick={() => setShow(!show)}
-            />
+        <h2 className="movie-name">
+          {movie.name}
+          <IconButton
+            aria-label="Toggle Summary"
+            onClick={() => setShow(!show)}
+            color="primary"
+          >
+            {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
+          <IconButton
+            aria-label="Go to movie details"
+            onClick={() => navigate("/movies/" + movie.id)}
+            color="primary"
+          >
+            <InfoIcon />
+          </IconButton>
+        </h2>
+
+        <Rating
+          name="movie-rating"
+          defaultValue={movie.rating / 2}
+          precision={0.1}
+          readOnly
+        />
+
+        {show && <p className="movie-summary">{movie.summary}</p>}
+        <div className="movie-action-container">
+          <MovieCounter />
+          <div>
+            {deleteBtn} {editBtn}
           </div>
         </div>
-        <Rating name="read-only" value={movie.rating/2} precision={0.5} readOnly />
-
-        {/* <Rating
-          name="half-rating-read"
-          defaultValue={movie.Rating}
-          precision={0.5}
-        /> */}
-
-        {/*   Task 1.2  */}
-        {/* <button onClick={() => setShow(!show)}>Toggle Summary</button> */}
-        {/* <Link to={"/movies/" + id}>View Details</Link> */}
-        {/* <button onClick={() => navigate("/movies/" + movie.id)}>View Details</button> */}
-
-        {/* Conditional Rendering */}
-        {show && <p className="movie-summary">{movie.summary}</p>}
-
-        {/* Conditional Styling */}
-        {/* <p style={summaryStyles} className="movie-summary">
-          {movie.summary}
-        </p> */}
-        {/* Task 1.1 - Like & DisLike - MovieCounter */}
-        <MovieCounter />
-
-
       </div>
-    </div>
+    </Card>
   );
 }

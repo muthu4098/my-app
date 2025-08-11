@@ -7,6 +7,7 @@ const [name, setName] = useState("");
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setSummary] = useState("");
+  const[trailer,setTrailer]=useState("")
 
   // const styles = {
   //   background: color,
@@ -64,6 +65,12 @@ const navigate = useNavigate();
           onChange={(event) => setSummary(event.target.value)}
           type="text"
           placeholder="Summary"
+        />
+         <input
+          value={trailer}
+          onChange={(event) => setTrailer(event.target.value)}
+          type="url"
+          placeholder="trailer"
         />
 
         {/* Task 3.2 - Add the color to the list */}
