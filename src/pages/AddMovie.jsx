@@ -1,28 +1,27 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
-import { MovieCounter } from "../components/MovieCounter";
+import { useNavigate } from "react-router";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import AddIcon from "@mui/icons-material/Add";
 
 export function AddMovie() {
-const [name, setName] = useState("");
+  const [name, setName] = useState("");
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setSummary] = useState("");
-  const[trailer,setTrailer]=useState("")
-
-  // const styles = {
-  //   background: color,
-  // };
-
-  // const [colors, setColors] = useState(INITIAL_COLORS);
+  const [trailer, setTrailer] = useState("");
 
   const resetMovieForm = () => {
     setName("");
     setPoster("");
     setRating("");
     setSummary("");
+    setTrailer("");
   };
 
-  const addMovie = (event) => {
+  const navigate = useNavigate();
+
+  const addMovie = async (event) => {
     event.preventDefault(); // no refresh
 
     const newMovie = {
@@ -30,54 +29,86 @@ const [name, setName] = useState("");
       poster: poster,
       rating: rating,
       summary: summary,
+      trailer: trailer,
     };
 
+    // POST
+    // 1. method - POST
+    // 2. Data - Body & JSON
+    // 3. Headers - JSON
+
+    const response = await fetch(
+      "https://68959012039a1a2b288f7c29.mockapi.io/Movies",
+      {
+        method: "POST",
+        body: JSON.stringify(newMovie),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+
+    navigate("/movies");
     // Existing movies + new Movie
     // setMovies([...movies, newMovie]);
     resetMovieForm();
   };
 
-
-const navigate = useNavigate();
-
   return (
     <form onSubmit={addMovie} className="add-movie-form">
-        <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          type="text"
-          placeholder="Name"
-        />
-        <input
-          value={poster}
-          onChange={(event) => setPoster(event.target.value)}
-          type="text"
-          placeholder="Poster"
-        />
-        <input
-          value={rating}
-          onChange={(event) => setRating(event.target.value)}
-          type="text"
-          placeholder="Rating"
-        />
-        <input
-          value={summary}
-          onChange={(event) => setSummary(event.target.value)}
-          type="text"
-          placeholder="Summary"
-        />
-         <input
-          value={trailer}
-          onChange={(event) => setTrailer(event.target.value)}
-          type="url"
-          placeholder="trailer"
-        />
+      <TextField
+      type="text"
+        variant="outlined"
+        label="Name"
+        onChange={(event) => setName(event.target.value)}
+        value={name}
+      />
 
-        {/* Task 3.2 - Add the color to the list */}
-        {/* Existing Colors + New Color */}
-        {/* submit -> onSubmit event triggered */}
-        <button type="submit">➕ Add</button>
-      </form>
+      <TextField
+      type="url"
+        variant="outlined"
+        label="Poster"
+        onChange={(event) => setPoster(event.target.value)}
+        value={poster}
+      />
+
+      <TextField
+      type="number"
+        variant="outlined"
+        label="Rating"
+        onChange={(event) => setRating(event.target.value)}
+        value={rating}
+      />
+
+      <TextField
+      type="textArea"
+        variant="outlined"
+        label="Summary"
+        onChange={(event) => setSummary(event.target.value)}
+        value={summary}
+      />
+
+      <TextField
+      type="url"
+        variant="outlined"
+        label="Trailer"
+        onChange={(event) => setTrailer(event.target.value)}
+        value={trailer}
+      />
+
+      {/* Task 3.2 - Add the color to the list */}
+      {/* Existing Colors + New Color */}
+      {/* submit -> onSubmit event triggered */}
+      <Button
+        color="primary"
+        type="submit"
+        variant="contained"
+        startIcon={<AddIcon />}
+      >
+        Add
+      </Button>
+    </form>
   );
 }
-

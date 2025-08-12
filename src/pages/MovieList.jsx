@@ -9,12 +9,14 @@ import { useNavigate } from "react-router";
 // 1. When will MovieList be mounted?
 export function MovieList() {
   const [movies, setMovies] = useState([]);
+  // const [searchTerm, setSearchTerm] = useState("");
 
   async function getMovies() {
     const response = await fetch(
       "https://68959012039a1a2b288f7c29.mockapi.io/Movies",
       { method: "GET" }
     );
+
     const data = await response.json();
     setMovies(data);
   }

@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import { useParams } from "react-router";
@@ -86,7 +86,7 @@ export function EditMovieForm({ movie }) {
     // 3. Headers - JSON
 
     const response = await fetch(
-      `https://6402db84f61d96ac487212a6.mockapi.io/movies/${movie.id}`,
+      `https://68959012039a1a2b288f7c29.mockapi.io/Movies${movie.id}`,
       {
         method: "PUT",
         body: JSON.stringify(updatedMovie),
@@ -104,6 +104,7 @@ export function EditMovieForm({ movie }) {
   return (
     <form onSubmit={updateMovie} className="add-movie-form">
       <TextField
+      type="text"
         variant="outlined"
         label="Name"
         onChange={(event) => setName(event.target.value)}
@@ -111,6 +112,7 @@ export function EditMovieForm({ movie }) {
       />
 
       <TextField
+      type="url"
         variant="outlined"
         label="Poster"
         onChange={(event) => setPoster(event.target.value)}
@@ -118,6 +120,7 @@ export function EditMovieForm({ movie }) {
       />
 
       <TextField
+      type="number"
         variant="outlined"
         label="Rating"
         onChange={(event) => setRating(event.target.value)}
@@ -125,6 +128,7 @@ export function EditMovieForm({ movie }) {
       />
 
       <TextField
+      type="textArea"
         variant="outlined"
         label="Summary"
         onChange={(event) => setSummary(event.target.value)}
@@ -132,6 +136,7 @@ export function EditMovieForm({ movie }) {
       />
 
       <TextField
+      type="url"
         variant="outlined"
         label="Trailer"
         onChange={(event) => setTrailer(event.target.value)}

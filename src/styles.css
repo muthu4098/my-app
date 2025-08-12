@@ -1,46 +1,33 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
-}
-nav {
-  background-color: #1976d2;
-  height: 30px;
-  padding: 20px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  max-width: 100%;
-
-  a {
-    color: #cd1111;
-    color: white;
-    text-decoration: none;
-  }
+  /* text-align: center; */
 }
 
-.container {
-  color: black;
+.user-container {
   img {
-    height: 150px;
+    height: 200px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
   }
+
+  p {
+    font-size: 24px;
+  }
+
   span {
     font-weight: bold;
     font-style: italic;
   }
-  p {
-    font-size: 20px;
-  }
 }
+
 .user-list-container {
   display: grid;
   gap: 42px;
 }
 
 .movie-container {
-  width: 340px;
+  width: 400px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -48,10 +35,10 @@ nav {
 }
 
 .movie-poster {
-  height: 640px;
+  height: 540px;
   width: 100%;
   object-fit: cover;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 
 .movie-specs {
@@ -75,7 +62,6 @@ nav {
   margin-top: 10px;
   font-size: 16px;
   line-height: 1.5;
-  padding: 10px;
 }
 
 .movie-content-container {
@@ -89,51 +75,16 @@ nav {
   justify-content: space-around;
   align-items: flex-start;
 
-  /* RAM
-  display: grid;
+  /* RAM */
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   justify-items: center;
   gap: 32px; */
 }
 
-.movie-btom-icon {
-  display: flex;
-  justify-content: space-between;
-}
-.edit-delete-icon {
-  display: flex;
-  gap: 20px;
-  padding: 10px;
-}
-.like-btn {
-  display: flex;
-  gap: 30px;
-  padding: 10px;
-  color: #1976d2;
-}
-
-.delete-icon {
-  color: red;
-}
-.edit-icon {
-  color: blue;
-}
-.dislike-btn {
-  padding-top: 10px;
-  color: crimson;
-}
-.info-icon {
-  background-color: white;
-  color: darkmagenta;
-}
-.info {
-  display: flex;
-  gap: 20px;
-}
-
 .counter-btn-container {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 
   button {
     font-size: 1rem;
@@ -155,21 +106,30 @@ nav {
 }
 
 /* 1rem = 16px */
-.add-movie-form,
-.edit-movie-form {
+.add-movie-form {
   display: grid;
   gap: 0.5rem;
   max-width: 30rem;
+
   margin: 1.25rem auto;
-  border-radius: 10px;
-  input {
-    height: 30px;
-  }
-  button {
-    height: 30px;
-  }
 }
 
 .movie-detail-content-container {
   max-width: 60rem;
+  padding-inline: 1rem;
+}
+
+.movie-action-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  margin: 0;
+}
+
+.loader-container {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
 }
