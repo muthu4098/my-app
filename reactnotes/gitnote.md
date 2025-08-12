@@ -32,3 +32,8 @@ anthony fu
 -key used to performance
 
 <!-- use redex,callback,memo -->
+logical properties
+block
+inline
+use in box model
+using modern css
