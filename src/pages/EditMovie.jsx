@@ -20,7 +20,7 @@ export function EditMovie() {
   const [isError, setIsError] = useState(false);
 
   async function getMovie(id) {
-    setIsLoading(true); // screen on
+    setIsLoading(true); 
     setIsError(false);
 
     try {
@@ -30,19 +30,19 @@ export function EditMovie() {
       const data = await response.json();
 
       console.log(data);
-      // data loaded
+
       setMovie(data);
-      setIsLoading(false); // screen off
+      setIsLoading(false); 
     } catch (err) {
       console.log("Error Happened", err);
-      console.log("Notification - Error"); // Todo: Material
-      setIsLoading(false); // screen off
+      console.log("Notification - Error"); 
+      setIsLoading(false); 
       setIsError(true);
     }
   }
 
   useEffect(() => {
-    getMovie(id); // Good Practice
+    getMovie(id); 
   }, [id]);
 
   if (isLoading) {
@@ -143,9 +143,7 @@ export function EditMovieForm({ movie }) {
         value={trailer}
       />
 
-      {/* Task 3.2 - Add the color to the list */}
-      {/* Existing Colors + New Color */}
-      {/* submit -> onSubmit event triggered */}
+    
       <Button
         color="success"
         type="submit"

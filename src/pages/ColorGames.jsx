@@ -12,20 +12,17 @@ export function ColorGames() {
   return (
 
     <div className="colorgame-contain">
-      {/* Task 2.2 - Update the background the input */}
 
       <input
         value={color}
         style={styles}
         onChange={(event) => setColor(event.target.value)}
         type="text" />
-      {/* Task 3.2 - Uses colors - Display Color Box */}
       <button onClick={(() => setaddColor([...addcolor, color]))}>➕ Add</button>
       {addcolor.map(clr => <ColorBox clr={clr} />
       )}
 
 
-      {/* Task 3.1 - Uses colors - Display Color Box */}
     </div>
   );
 }

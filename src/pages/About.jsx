@@ -1,8 +1,6 @@
-// /about -> About
 export function NotFound() {
   return <h1>404 - Not Found </h1>;
 }
-// /about -> About
 export function About() {
   return (<div>
     <h1>About Me </h1>

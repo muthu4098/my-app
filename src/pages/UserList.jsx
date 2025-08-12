@@ -18,3 +18,16 @@ export function UserList() {
   ];
   return userList.map(({ name, pic }) => <User name={name} pic={pic} />);
 }
+
+// function User({ pic, name }) {
+//   return (
+//     <div className="user-container">
+//       <img src={pic} alt={name} />
+      
+//       <p>
+//         Hello, <span>{name}</span>🙂‍↕
+//       </p>
+//      <MovieCounter />
+//     </div>
+//   );
+// }

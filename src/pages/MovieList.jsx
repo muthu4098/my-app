@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 import { Movie } from "../components/Movie";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router";
-// import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
 
-// 1. When will MovieList be mounted?
 export function MovieList() {
   const [movies, setMovies] = useState([]);
   // const [searchTerm, setSearchTerm] = useState("");
@@ -21,12 +19,12 @@ export function MovieList() {
     setMovies(data);
   }
 
-  // Component Mounted - once
+ 
   useEffect(() => {
     getMovies();
   }, []);
 
-  // Delete -> Refresh
+  
   const deleteMovie = async (id) => {
     console.log("Deleting...", id);
     const response = await fetch(
@@ -40,7 +38,7 @@ export function MovieList() {
   };
 
   const navigate = useNavigate();
-  // C=F(S)
+  
 
   return (
     <section className="movie-list-container">

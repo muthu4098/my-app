@@ -14,3 +14,8 @@ file
 rename as rename variable
 
 one delete ->ctrl + space
+
+## memo 
+-memoization(cache)
+ given input not change in time output also same
+  
