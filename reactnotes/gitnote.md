@@ -37,3 +37,29 @@ block
 inline
 use in box model
 using modern css
+
+
+# google 
+-croler bots using for ranking
+
+#learn
+## server component
+-server side renering
+-client side rendering 
+-types of renering
+-hydration
+ -rehydration
+### learn
+ # tech
+ addy osmani
+ antony fu
+ leyavero
+ # 1line layouts.com
+ # lea.verou.me
+ #caniuse.com
+#gitup- w3c/csswg
+
+# share usestate -> performance
+-redux
+
+

@@ -80,10 +80,8 @@ export function EditMovieForm({ movie }) {
       trailer: trailer,
     };
 
-    // PUT
-    // 1. method - PUT & id
-    // 2. Data - Body & JSON
-    // 3. Headers - JSON
+    
+    
 
     const response = await fetch(
       `https://68959012039a1a2b288f7c29.mockapi.io/Movies${movie.id}`,
